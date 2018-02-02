@@ -19,13 +19,21 @@ while (<$fh>){
 	my @seed = split("", $initial);
 	
 	my $i = 0;
-	my @nums;
+	my @vals = (0) x scalar @taps;
 	foreach(@taps){
 		my $tap = $_;
-		@nums[$i] = $seed[$tap];
+		$vals[$i] += $seed[$tap];
 		$i++;
 	}
 	
-
+	my $size = scalar @vals;
+	# get initial cur value
+	my $cur = $vals[0] ^ $vals[1];
+	if ($size > 2){
+		for (my $i=2; $i < $size-1; $i++){
+			$cur = $cur ^= $vals[$i];
+		}
+	}
+	print "$cur\n";
 }
 close($fh);
