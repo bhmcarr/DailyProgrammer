@@ -1,6 +1,6 @@
 # DailyProgrammer
 
-This repo is to store my solutions to /r/dailyprogrammer challenges.
+This repo is to store my solutions to /r/dailyprogrammer challenges. (reddit.com/r/dailyprogrammer)
 
 ## Challenge Tracking
 | Challenge | Easy | Intermediate | Hard |
