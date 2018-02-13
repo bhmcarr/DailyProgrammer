@@ -2,7 +2,7 @@
 use warnings;
 use strict;
 
-my $filename = "input.txt";
+my $filename = "$ARGV[0]" or die "USAGE: \n  347i.pl [INPUT FILE]\n";
 open(my $fh, "<" ,$filename) or die "Unable to open file: $filename\n";
 
 my ($nums, $function, $initial, $nsteps);
