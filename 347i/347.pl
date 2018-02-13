@@ -19,11 +19,12 @@ while (<$fh>){
 	my @seed = split("", $initial);
 	
 	my $seedsize = scalar @seed;
+	print "$line";
 	if ($function =~ /XOR/){
-		print "0 ";
+		my $xorcount = 1;
+		print "0  ";
 		foreach (@seed){print $_};
 		print "\n";
-		my $xorcount = 1;
 		while ($xorcount <= $nsteps){
 			my $i = 0;
 			my @vals = (0) x scalar @taps;
@@ -34,22 +35,19 @@ while (<$fh>){
 				$i++;
 			}
 
-
 			my $size = scalar @vals;
 
-			my $cur = $vals[0] ^ $vals[1];
-
-			if ($size > 2){
-				for (my $i=1; $i < $size-1; $i++){
-					$cur = $cur ^= $vals[$i];
-				}
+			my $xor = 0;
+			foreach(@vals){
+				$xor = $xor ^ $_;
 			}
-			my $xor = $cur;
-			
+				
+			pop(@seed);
 			unshift (@seed, $xor);
 
 			print "$xorcount ";
-			for (my $i=0){print $_};
+			print " " if $xorcount < 10;
+			foreach(@seed){print $_};
 			print "\n";	
 			$xorcount++
 		}
