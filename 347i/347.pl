@@ -2,8 +2,6 @@
 use warnings;
 use strict;
 
-use Switch;
-
 # argument handling (this is kind of horrible)
 my $filename = "$ARGV[0]" or die "USAGE: \n  347i.pl [INPUT FILE]\n";
 open(my $fh, "<" ,$filename) or die "Unable to open file: $filename\n";
@@ -14,7 +12,7 @@ while (<$fh>){
 	my $line = $_;
 
 	# yank out everything we need from a line and store it nicely
-	if ($line =~ /\[(\d+,\d+(?:,\d+)*)\] (XOR|XNOR) (\d+) (\d+)/ ){
+	if ($line =~ /\[(\d+,\d+(?:,\d+)*)\] (XOR|XNOR) (\d+) (\d+)/){
 		($nums, $function, $initial, $nsteps) = ($1, $2, $3, $4);
 	}
 
