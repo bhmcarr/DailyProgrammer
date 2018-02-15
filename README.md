@@ -5,4 +5,4 @@ This repo is to store my solutions to /r/dailyprogrammer challenges. (reddit.com
 ## Challenge Tracking
 | Challenge | Easy | Intermediate | Hard |
 | :-------- | :-: | :-: | :---: |
-| 347 | x | i | | 
+| 347 | x | x | | 
